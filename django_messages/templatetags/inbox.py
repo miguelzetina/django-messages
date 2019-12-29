@@ -7,7 +7,7 @@ class InboxOutput(Node):
     def render(self, context):
         try:
             user = context['user']
-            count = user.received_messages.filter(read_at__isnull=True, recipient_deleted_at__isnull=True).count()
+            count = user.django_received_messages.filter(read_at__isnull=True, recipient_deleted_at__isnull=True).count()
         except (KeyError, AttributeError):
             count = ''
         if self.varname is not None:

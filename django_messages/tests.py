@@ -35,10 +35,10 @@ class SendTestCase(TestCase):
         self.assertEqual(self.msg1.recipient, self.user2)
         self.assertEqual(self.msg1.subject, 'Subject Text')
         self.assertEqual(self.msg1.body, 'Body Text')
-        self.assertEqual(self.user1.sent_messages.count(), 1)
-        self.assertEqual(self.user1.received_messages.count(), 0)
-        self.assertEqual(self.user2.received_messages.count(), 1)
-        self.assertEqual(self.user2.sent_messages.count(), 0)
+        self.assertEqual(self.user1.django_sent_messages.count(), 1)
+        self.assertEqual(self.user1.django_received_messages.count(), 0)
+        self.assertEqual(self.user2.django_received_messages.count(), 1)
+        self.assertEqual(self.user2.django_sent_messages.count(), 0)
 
 
 class DeleteTestCase(TestCase):
